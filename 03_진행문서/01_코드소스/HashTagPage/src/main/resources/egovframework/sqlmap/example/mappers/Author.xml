@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="teamproject.author.service.impl.AuthorMapper">
+	
+	<select id="selectAuthorList"
+			parameterType="Criteria"
+			resultType="AuthorVO"
+	>
+		SELECT * FROM "Author"
+		WHERE "author_name" LIKE '%' || #{searchKeyword} ||'%'
+		OFFSET #{firstIndex} ROWS
+		FETCH NEXT #{pageUnit} ROWS ONLY
+	</select>
+	
+	<!-- id="메소드명",parameterType="매개변수자료형",resultType="return자료형"  -->
+	<select id="selectAuthorListTotCnt"
+			parameterType="Criteria"
+			resultType="int"
+	>
+		SELECT COUNT(*) FROM "Author"
+		WHERE "author_id" LIKE '%' || #{searchKeyword} ||'%'		
+	</select>
+	
+	<insert id="insert"
+			parameterType="AuthorVO"
+	>
+		INSERT INTO "Author"("author_id","author_name"
+		                    ,"author_bio","author_debut_date","sns_link1","sns_link2","author_email")
+		VALUES(#{authorId},#{authorName},#{authorBio},SYSDATE,
+				#{snsLink1},#{snsLink2},#{authorEmail})		
+	</insert>
+	
+	<!-- id="메소드명",parameterType="매개변수자료형",resultType="return자료형"  -->
+	<select id="selectAuthor"
+			parameterType="String"
+			resultType="AuthorVO">
+		SELECT * FROM "Author"
+		WHERE "author_id"=#{authorId}		
+	</select>
+
+	<update id="update"
+			parameterType="AuthorVO">
+		UPDATE "Author"
+		SET "author_id"=#{authorId},
+		    "author_name"=#{authorName},
+			"author_bio"=#{authorBio},
+			"author_debut_date"=SYSDATE,
+			"sns_link1"=#{snsLink1},
+			"sns_link2"=#{snsLink2},
+		    "author_email"=#{authorEmail}
+		WHERE "author_id"=#{authorId}
+	</update>
+	
+	<delete id="delete"
+			parameterType="AuthorVO">
+		DELETE "Author"
+		WHERE "author_id"=#{authorId}		
+	</delete>
+	
+	
+
+</mapper>

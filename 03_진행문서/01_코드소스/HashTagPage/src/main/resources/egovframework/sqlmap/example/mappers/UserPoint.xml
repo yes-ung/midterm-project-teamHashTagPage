@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="teamproject.userpoint.service.impl.UserPointMapper">
+	
+	<select id="selectUserPointList"
+			parameterType="Criteria"
+			resultType="UserPointVO"
+	>
+		SELECT * FROM "User_Point"
+		WHERE "user_id" LIKE '%' || #{searchKeyword} ||'%'
+		OFFSET #{firstIndex} ROWS
+		FETCH NEXT #{pageUnit} ROWS ONLY
+	</select>
+	
+	<!-- id="메소드명",parameterType="매개변수자료형",resultType="return자료형"  -->
+	<select id="selectUserPointListTotCnt"
+			parameterType="Criteria"
+			resultType="int"
+	>
+		SELECT COUNT(*) FROM "User_Point"
+		WHERE "user_point_id" LIKE '%' || #{searchKeyword} ||'%'		
+	</select>
+	
+	<insert id="insert"
+			parameterType="UserPointVO"
+	>
+		INSERT INTO "User_Point"("user_point_id","user_id"
+		                    ,"payment_id","total_point"
+		                    ,"point_change","point_type","point_description"
+		                    ,"point_created_at")
+		VALUES(#{userPointId},#{userId},#{paymentId},#{totalPoint},#{pointChange}
+					,#{pointType},#{pointDescription}
+		                    ,SYSDATE)		
+	</insert>
+	
+	<!-- id="메소드명",parameterType="매개변수자료형",resultType="return자료형"  -->
+	<select id="selectUserPoint"
+			parameterType="String"
+			resultType="UserPointVO">
+		SELECT * FROM "User_Point"
+		WHERE "user_point_id"=#{userPointId}		
+	</select>
+
+	<update id="update"
+			parameterType="UserPointVO">
+		UPDATE "User_Point"
+		SET "user_point_id"=#{userPointId},
+		    "user_id"=#{userId},
+			"payment_id"=#{paymentId},
+			"total_point"=#{totalPoint},
+			"point_change"=#{pointChange},
+			"point_description"=#{pointDescription},
+		    "point_type"=#{pointType}
+		WHERE "user_point_id"=#{userPointId}
+	</update>
+	
+	<delete id="delete"
+			parameterType="UserPointVO">
+		DELETE "User_Point"
+		WHERE "user_point_id"=#{userPointId}		
+	</delete>
+	
+	
+
+</mapper>

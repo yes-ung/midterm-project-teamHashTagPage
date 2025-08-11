@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+
+<!-- 네이버 SMTP -->
+<bean id="naverMailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+    <property name="host" value="smtp.naver.com"/>
+    <property name="port" value="587"/>
+    <property name="username" value="otk4239@naver.com" />
+    <property name="password" value="2DJHXCV9SGQP" />
+    <property name="javaMailProperties">
+        <props>
+            <prop key="mail.smtp.auth">true</prop>
+                <prop key="mail.smtp.starttls.enable">true</prop>
+                <prop key="mail.smtp.starttls.required">true</prop>
+                <prop key="mail.smtp.ssl.trust">smtp.naver.com</prop>
+                 <prop key="mail.smtp.ssl.protocols">TLSv1.2</prop>
+        </props>
+    </property>
+</bean>
+
+
+	
+    
+    <!-- 구글 SMTP -->
+<bean id="googleMailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+    <property name="host" value="smtp.gmail.com"/>
+    <property name="port" value="587"/>
+    <property name="username" value="ohtae4239@gmail.com"/>
+    <property name="password" value="ftquewfvlcxnqfel"/>
+    <property name="javaMailProperties">
+        <props>
+            <prop key="mail.smtp.auth">true</prop>
+             <prop key="mail.smtp.starttls.enable">true</prop>
+                <prop key="mail.smtp.starttls.required">true</prop>
+                <prop key="mail.smtp.ssl.trust">smtp.gmail.com</prop>
+                 <prop key="mail.smtp.ssl.protocols">TLSv1.2</prop>
+        </props>
+    </property>
+</bean>
+	<bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+
+</beans>

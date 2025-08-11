@@ -1,0 +1,195 @@
+/* 전체 레이아웃 */
+.couponlist-container {
+  display: flex;
+  flex-direction: column;
+  /* 세로로 정렬 */
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* 사이드 메뉴 */
+.couponlist-sidebar-box {
+  width: 100%;
+  margin: 0 auto;
+  border-bottom: 1px solid var(--bg-subtle);
+}
+
+.couponlist-sidebar {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  padding-bottom: 1rem;
+  justify-content: center;
+}
+
+.couponlist-sidebar li {
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.couponlist-sidebar li a {
+  color: black;
+  text-decoration: none;
+}
+
+/* 본문 제목 */
+.couponlist-title {
+  padding-top: 1rem;
+}
+
+.couponlist-subtitle h4 {
+  padding: 1rem 0 1rem 0;
+}
+
+.couponlist-subtitlebox {
+  display: flex;
+  justify-content: flex-start;
+  gap: 5rem;
+  border-bottom: 0.1rem solid var(--bg-subtle);
+}
+
+.couponlist-main {
+  display: flex;
+  padding-top: 1rem;
+  width: 100%;
+}
+/* 본문 내용 */
+.couponlist-main-body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  padding-right: 1rem;
+  padding-bottom: 2rem;
+  padding-top: 1rem;
+}
+
+.coupon-container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.input-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.input-section input {
+  flex: 1;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 12px;
+}
+
+.input-section button {
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-blue1, #003399);
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.coupon {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-left: 8px solid #ff6d63;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.coupon h2 {
+  margin: 0;
+  font-size: 22px;
+}
+.condition {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.condition img {
+  width: 50%;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+.coupon .details {
+  margin-left: 10px;
+  width: 100%;
+  font-size: 13px;
+  margin-top: 5px;
+  color: #555;
+}
+
+.coupon a {
+  display: inline-block;
+  margin-top: 8px;
+  color: #2767ec;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.coupon a:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 1024px) {
+  .couponlist-container {
+    margin-top: 3rem;
+    flex-direction: row;
+    display: flex;
+  }
+
+  /* 사이드 메뉴 */
+  .couponlist-sidebar-box {
+    width: 12rem;
+    border-bottom: none;
+  }
+
+  .couponlist-sidebar {
+    padding-left: 2rem;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .couponlist-sidebar li {
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+
+  .couponlist-sidebar li a {
+    color: var(--basic6-dark);
+    text-decoration: none;
+  }
+
+  .couponlist-divider {
+    width: 1px;
+    background-color: var(--bg-subtle);
+    height: auto;
+    /* 기본은 콘텐츠 높이에 맞춤 */
+    margin: 0 0 1rem 0;
+  }
+
+  .couponlist-main {
+    display: flex;
+
+    justify-content: flex-start;
+  }
+
+  .couponlist-main-body {
+    gap: 3rem;
+  }
+
+  .couponlist-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .couponlist-title {
+    margin-left: 1rem;
+  }
+}

@@ -1,0 +1,287 @@
+
+    a, a:visited, a:hover, a:active {
+  color: inherit ;           /* 부모 요소의 색상 상속 */
+  text-decoration: none;    /* 밑줄 제거 */
+  cursor: pointer;          /* 마우스 포인터 */
+  }   
+
+
+/* 전체 레이아웃 */
+.mypage-container {
+    display: flex;
+    flex-direction: column;
+    /* 세로로 정렬 */
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* 사이드 메뉴 */
+.mypage-sidebar-box {
+
+    width: 100%;
+    
+    margin: 0 auto;
+    border-bottom: 1px solid var(--bg-subtle);
+
+
+}
+
+.mypage-sidebar {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    padding-bottom: 1rem;
+    justify-content: center;
+
+}
+
+.mypage-sidebar li {
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.mypage-sidebar li a {
+    color: var(--basic6-dark);
+    text-decoration: none;
+}
+
+
+/* 본문 제목 */
+.mypage-title {
+    padding-top: 1rem;
+
+}
+
+.mypage-subtitle h4 {
+    border-bottom: 0.1rem solid var(--bg-subtle);
+    padding: 1rem 0 1rem 0;
+}
+
+
+
+
+.mypage-main {
+    display: flex;
+    padding-top: 2rem;
+    width: 100%;
+    justify-content: center;
+
+
+}
+
+/* 프로필 이미지 박스 */
+.profile-img {
+    width: 200px;
+    text-align: left;
+ 
+}
+
+.myprofile-img {
+    width: 200px;
+    height: 250px;
+ background: var(--white);
+  border-radius: 11px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.profile-img-button {
+    
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 14px;
+    margin-top: 0.5rem;
+}
+.profile-img-button button {
+    
+  background-color: #8a8f98;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  width: 3rem;
+  display: flex;
+  justify-content: center;
+ 
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  
+}
+
+
+/* 프로필 본문 */
+.mypage-update {
+    text-align: left;
+    /* 왼쪽 정렬 */
+    padding-top: 0.5rem;
+    font-size: 13px;
+    
+}
+
+
+.mypage-update input {
+    font-size: 13px;
+    padding: 0.3rem;
+    box-sizing: border-box;
+    border: 1px solid gray;
+    opacity: 80%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 6px;
+}
+
+.update-box {
+
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 0.6rem;
+    margin-top: 1rem
+    
+}
+.update-box-pwc{
+	margin-bottom:5px;
+}
+.update-box-pwc p{
+	font-size:0.75rem;
+	font-weight: 350;
+	color: #2E3E5A;
+}
+
+
+
+/* 로그아웃 버튼 모바일에서만 적용 */
+.logout2{
+     height: 50px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: flex;         /* 플렉스 활성화 */
+    justify-content: center; /* 가로 중앙 */
+    align-items: center;     /* 세로 중앙 */
+    background-color: #2E3E5A;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 11px;
+}
+
+.logout2 h5 a {
+    color: white;
+}
+
+/* 회원탈퇴 버튼 */
+.bye {
+   
+    height: 50px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: flex;         /* 플렉스 활성화 */
+    justify-content: center; /* 가로 중앙 */
+    align-items: center;     /* 세로 중앙 */
+    background-color: #2E3E5A;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 11px;
+}
+
+
+.bye h5 a {
+  color: white;
+}
+.bye button{
+	color:white;
+}
+
+@media (min-width: 1024px) {
+   .mypage-container {
+    
+    margin-top: 3rem;
+    flex-direction: row;
+    display: flex;
+}
+
+/* 사이드 메뉴 */
+.mypage-sidebar-box {
+    width: 12rem;
+    border-bottom: none;
+}
+
+.mypage-sidebar {
+    padding-left: 2rem;
+    flex-direction: column;
+}
+
+.mypage-sidebar li {
+    
+    font-size: 0.8rem;
+    font-weight: bold;
+    
+}
+
+.mypage-sidebar li a {
+    color: var(--basic6-dark);
+    text-decoration: none;
+   
+}
+/* 사이드 메뉴 선 */
+.mypage-divider {
+    width: 1px;
+    background-color: var(--bg-subtle);
+    height: auto;
+    /* 기본은 콘텐츠 높이에 맞춤 */
+    margin: 0 0 1rem 0;
+}
+
+.mypage-main {
+    display: flex;
+ 
+    justify-content: flex-start;
+
+
+}
+
+.mypage-content {
+    flex: 1;
+    min-width: 0;
+    
+}
+
+
+
+.mypage-title {
+    margin-left: 1rem;
+    
+}
+
+
+.profile-img {
+  flex-shrink: 0;
+  text-align: left;
+}
+
+
+
+
+
+.mypage-update {
+  text-align: left; /* 왼쪽 정렬 */
+  padding-top: none;
+  font-size: 14px;
+}
+
+.mypage-update input {
+
+  box-sizing: border-box;
+ 
+}
+
+.update-box {
+
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 5px;
+
+    margin-top: 1rem
+    
+}
+
+
+.logout2{
+    display: none;
+}
+
+
+}

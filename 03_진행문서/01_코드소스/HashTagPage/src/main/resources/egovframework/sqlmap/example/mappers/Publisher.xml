@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="teamproject.publisher.service.impl.PublisherMapper">
+	
+	<select id="selectPublisherList"
+			parameterType="Criteria"
+			resultType="PublisherVO"
+	>
+		SELECT * FROM "Publisher"
+		WHERE "publisher_name" LIKE '%' || #{searchKeyword} ||'%'
+		OFFSET #{firstIndex} ROWS
+		FETCH NEXT #{pageUnit} ROWS ONLY
+	</select>
+	
+	<!-- id="메소드명",parameterType="매개변수자료형",resultType="return자료형"  -->
+	<select id="selectPublisherListTotCnt"
+			parameterType="Criteria"
+			resultType="int"
+	>
+		SELECT COUNT(*) FROM "Publisher"
+		WHERE "publisher_id" LIKE '%' || #{searchKeyword} ||'%'		
+	</select>
+	
+	<insert id="insert"
+			parameterType="PublisherVO"
+	>
+		INSERT INTO "Publisher" ("publisher_id","publisher_name"
+		                    ,"publisher_escription","publisher_logo_img","publisher_logo_img_url","publisher_url"
+		                    ,"contact_email","publisher_created_at")
+		VALUES(#{publisherId},#{publisherName},#{publisherEscription},#{publisherLogoImg},#{publisherLogoImgUrl},#{publisherUrl},#{contactEmail}
+		                    ,SYSDATE)	
+	</insert>
+	
+	<!-- id="메소드명",parameterType="매개변수자료형",resultType="return자료형"  -->
+	<select id="selectPublisher"
+			parameterType="String"
+			resultType="PublisherVO">
+		SELECT * FROM "Publisher"
+		WHERE "publisher_id"=#{publisherId}		
+	</select>
+
+	<delete id="delete"
+			parameterType="PublisherVO">
+		DELETE "Publisher"
+		WHERE "publisher_id"=#{publisherId}		
+	</delete>
+	
+	
+
+</mapper>
