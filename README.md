@@ -15,7 +15,7 @@
 - Java 11 / Spring Framework / JSP
 - Oracle DB / MyBatis
 - HTML / CSS / JavaScript / jQuery / Bootstrap
-- Kakao API / DeepL API / Spoonacular API / TheMealDB API / 공공데이터포털 오픈 API
+- Kakao API / Google API
 - Git / GitHub / Visual Studio Code
 
 ## 팀원 구성
