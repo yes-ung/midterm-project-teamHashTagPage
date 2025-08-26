@@ -1,0 +1,24 @@
+***데이터 내 PC DB로 복사하는법***
+
+1. 여기 같이 첨부된 .dmp 파일을 C드라이브 바로 아래로 옮겨놓는다. 
+C/TeamProject_backup.dmp             <- (경로가 이렇게 되도록)
+
+2. cmd를 관리자 권한으로 실행시킨다.
+
+3. cmd에 해당 코드 그대로 복사 붙여넣기 실행
+imp TeamProject/"!Ds1234567890"@XE file=C:\TeamProject_backup.dmp fromuser=TeamProject touser=TeamProject
+
+(여기서 성공하면 끝 실패했다면 아래사항을 다시 체크)
+
+4. 만약 본인의 DB에 TeamProject 계정이 미리 안만들어져있다면 복사가 안된다.
+   그렇다면 관리자계정에 들어가서
+
+해당 코드 그대로 복사 붙여넣기 실행
+CREATE USER TeamProject IDENTIFIED BY "!Ds1234567890";
+GRANT CONNECT, RESOURCE TO TeamProject;
+
+그후 다시 3번 실행
+3. cmd에 해당 코드 그대로 복사 붙여넣기 실행
+imp TeamProject/"!Ds1234567890"@XE file=C:\TeamProject_backup.dmp fromuser=TeamProject touser=TeamProject
+
+
